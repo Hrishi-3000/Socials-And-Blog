@@ -1,210 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hrishikesh Shahane - Social Links & Blogs</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/feather-icons"></script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    a {
-      transition: all 0.3s ease-in-out;
-    }
-    a:hover {
-      transform: scale(1.05);
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s forwards;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-</head>
-<body class="min-h-screen bg-black text-white p-8" id="page">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hrishikesh Shahane – Digital Hub</title>
 
-  <!-- Header -->
-  <div class="flex justify-between items-center mb-10">
-    <h1 class="text-4xl font-bold fade-in"> Hrishikesh Shahane - Social Links & Blogs</h1>
-    <button id="modeToggle" class="rounded-full p-3 border border-gray-500">
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/feather-icons"></script>
+
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Animated gradient background */
+.bg-animated {
+  background: linear-gradient(-45deg, #000, #111, #1a1a1a, #000);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Hover lift */
+.lift:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Fade animation */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.7s forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body id="page" class="min-h-screen bg-animated text-white p-6 md:p-10">
+
+<!-- HEADER -->
+<header class="flex flex-col md:flex-row justify-between items-center mb-10 fade">
+  <div>
+    <h1 class="text-4xl font-bold">Hrishikesh Shahane</h1>
+    <p class="text-gray-400 mt-1">Digital Links • Projects • Blogs</p>
+  </div>
+
+  <div class="flex items-center gap-4 mt-4 md:mt-0">
+    <input id="search"
+      placeholder="Search links..."
+      class="px-4 py-2 rounded-xl bg-gray-800 text-white outline-none focus:ring-2 focus:ring-yellow-400"/>
+
+    <button id="modeToggle"
+      class="rounded-full p-3 border border-gray-500 hover:rotate-180 transition">
       <i data-feather="sun"></i>
     </button>
   </div>
+</header>
 
-  <!-- Grid -->
-  <div class="grid md:grid-cols-2 gap-8">
+<!-- GRID -->
+<div class="grid md:grid-cols-2 gap-8">
 
-    <!-- Profiles -->
-    <div class="text-yellow-100 shadow-lg rounded-2xl p-6 fade-in" 
-     style="animation-delay:0.4s; background:#2a2a2a;">
+<!-- SOCIAL & PROJECTS -->
+<section class="glass rounded-3xl p-6 fade">
+<h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+  <span class="px-3 py-1 text-sm rounded-full bg-yellow-400 text-black">Links</span>
+</h2>
 
-      <ul class="space-y-3">
-    <li>
-        <a href="https://www.linkedin.com/in/hrishikesh-shahane-a0a19a258/" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            LinkedIn <i data-feather="external-link"></i>
-        </a>
-    </li>
+<ul id="links" class="space-y-3">
 
-    <li>
-        <a href="https://github.com/Hrishi-3000" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            GitHub <i data-feather="external-link"></i>
-        </a>
-    </li>
+<!-- TEMPLATE ITEM -->
+<script>
+const links = [
+  ["LinkedIn","https://www.linkedin.com/in/hrishikesh-shahane-a0a19a258/"],
+  ["GitHub","https://github.com/Hrishi-3000"],
+  ["Portfolio Website","https://hrishikesh-shahane-portfolio.vercel.app/"],
+  ["Blogger Account","https://hrishikeshshahane-aboutme.blogspot.com/p/about-me.html"],
+  ["MyAnimeList","https://myanimelist.net/profile/Hrishikesh__2003"],
+  ["X (Twitter)","https://x.com/Hrishikesh_3000"],
+  ["Reddit","https://www.reddit.com/u/Hrishi_2003"],
+  ["Pinterest","https://pin.it/72QDEvxGw"],
+  ["Instagram (Main)","https://www.instagram.com/hrishikesh__2003"],
+  ["Instagram (Art)","https://www.instagram.com/art_for_hobbie"],
+  ["Discord","https://discord.gg/ySDEerp7"],
+  ["Tumblr","https://www.tumblr.com/hrishikes2003"],
+  ["Hrishikesh’s Archives","https://hrishikesh-archives.vercel.app/"],
+  ["Devotional Portal","https://devotional-portal-by-hrishikesh.vercel.app/"],
+  ["Game Collection","https://hrishi-game-collection.vercel.app/"]
+];
 
-    <li>
-        <a href="https://hrishikesh-shahane-portfolio.vercel.app/" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Portfolio Website <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://hrishikeshshahane-aboutme.blogspot.com/p/about-me.html" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Blogger Account <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://myanimelist.net/profile/Hrishikesh__2003" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            MyAnimeList <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://x.com/Hrishikesh_3000" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            X (Twitter) <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://www.reddit.com/u/Hrishi_2003/s/KBxiPCjdBG" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Reddit <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://pin.it/72QDEvxGw" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Pinterest <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://www.facebook.com/profile.php?id=100081961577902" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Facebook <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://www.instagram.com/hrishikesh__2003?igsh=YXQ0NWFnNGd3NzIx" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Instagram (Main) <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://www.instagram.com/art_for_hobbie?igsh=cXM4OXZzbmtyMGpo" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Instagram (Art) <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://discord.gg/ySDEerp7" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Discord <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://www.tumblr.com/hrishikes2003?source=share" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Tumblr <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <!-- 🔥 PROJECT LINKS ADDED -->
-
-    <li>
-        <a href="https://hrishikesh-archives.vercel.app/" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Hrishikesh’s Archives <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://devotional-portal-by-hrishikesh.vercel.app/" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Devotional Portal <i data-feather="external-link"></i>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://hrishi-game-collection.vercel.app/" target="_blank"
-           class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">
-            Game Collection <i data-feather="external-link"></i>
-        </a>
-    </li>
-</ul>
-
-    </div>
-
-    <!-- Blogs -->
-<div class="text-yellow-100 shadow-lg rounded-2xl p-6 fade-in" 
-     style="animation-delay:0.4s; background:#2a2a2a;">
-      <h2 class="text-2xl font-semibold mb-4">Blogs</h2>
-      <ul class="space-y-3">
-        <li><a href="https://treatiesmarathaempire.blogspot.com/?m=1" target="_blank" class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">Treaties under the Maratha Empire <i data-feather="external-link"></i></a></li>
-        <li><a href="https://hrishiimportantbattles.blogspot.com/?m=1" target="_blank" class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">Key Battles of WW2 <i data-feather="external-link"></i></a></li>
-        <li><a href="https://hrishihistoryfacts.blogspot.com/?m=1" target="_blank" class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">Fascinating Historical Treaties <i data-feather="external-link"></i></a></li>
-        <li><a href="https://nationalistsacrosstheworld.blogspot.com/?m=1" target="_blank" class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">Nationalists Across the World <i data-feather="external-link"></i></a></li>
-        <li><a href="https://dashavatar-vishnu.blogspot.com/?m=1" target="_blank" class="flex items-center justify-between bg-gray-700 hover:bg-gray-600 p-3 rounded-xl">The Dashavatar of Vishnu <i data-feather="external-link"></i></a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Portfolio Button -->
-  <div class="text-center mt-12 fade-in" style="animation-delay: 0.6s">
-    <a href="https://hrishikesh-shahane-portfolio.vercel.app/" target="_blank"
-      class="bg-white text-black hover:bg-gray-200 px-6 py-3 rounded-2xl text-lg font-semibold transition">
-      Visit My Portfolio
+document.write(
+  links.map(l => `
+  <li class="link-item">
+    <a href="${l[1]}" target="_blank"
+      class="lift flex justify-between items-center px-4 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 transition">
+      ${l[0]} <i data-feather="external-link"></i>
     </a>
-  </div>
+  </li>`).join("")
+);
+</script>
 
-  <script>
-    // Toggle Dark/Light Mode
-    const page = document.getElementById("page");
-    const btn = document.getElementById("modeToggle");
-    let darkMode = true;
-    btn.addEventListener("click", () => {
-      darkMode = !darkMode;
-      if (darkMode) {
-        page.className = "min-h-screen bg-black text-white p-8";
-        btn.innerHTML = feather.icons.sun.toSvg();
-      } else {
-        page.className = "min-h-screen bg-white text-black p-8";
-        btn.innerHTML = feather.icons.moon.toSvg();
-      }
-      feather.replace();
-    });
-    feather.replace();
-  </script>
+</ul>
+</section>
+
+<!-- BLOGS -->
+<section class="glass rounded-3xl p-6 fade">
+<h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+  <span class="px-3 py-1 text-sm rounded-full bg-purple-400 text-black">Blogs</span>
+</h2>
+
+<ul class="space-y-3">
+<li><a href="https://treatiesmarathaempire.blogspot.com/?m=1" target="_blank" class="lift flex justify-between items-center bg-gray-800 p-3 rounded-xl">Treaties under the Maratha Empire <i data-feather="external-link"></i></a></li>
+<li><a href="https://hrishiimportantbattles.blogspot.com/?m=1" target="_blank" class="lift flex justify-between items-center bg-gray-800 p-3 rounded-xl">Key Battles of WW2 <i data-feather="external-link"></i></a></li>
+<li><a href="https://hrishihistoryfacts.blogspot.com/?m=1" target="_blank" class="lift flex justify-between items-center bg-gray-800 p-3 rounded-xl">Fascinating Historical Treaties <i data-feather="external-link"></i></a></li>
+<li><a href="https://nationalistsacrosstheworld.blogspot.com/?m=1" target="_blank" class="lift flex justify-between items-center bg-gray-800 p-3 rounded-xl">Nationalists Across the World <i data-feather="external-link"></i></a></li>
+<li><a href="https://dashavatar-vishnu.blogspot.com/?m=1" target="_blank" class="lift flex justify-between items-center bg-gray-800 p-3 rounded-xl">Dashavatar of Vishnu <i data-feather="external-link"></i></a></li>
+</ul>
+</section>
+
+</div>
+
+<!-- CTA -->
+<div class="text-center mt-14 fade">
+<a href="https://hrishikesh-shahane-portfolio.vercel.app/"
+ class="inline-block bg-white text-black px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition">
+Visit My Portfolio 🚀
+</a>
+</div>
+
+<script>
+/* Theme toggle */
+const page = document.getElementById("page");
+const btn = document.getElementById("modeToggle");
+let dark = true;
+
+btn.onclick = () => {
+  dark = !dark;
+  page.className = dark
+    ? "min-h-screen bg-animated text-white p-6 md:p-10"
+    : "min-h-screen bg-white text-black p-6 md:p-10";
+  btn.innerHTML = dark ? feather.icons.sun.toSvg() : feather.icons.moon.toSvg();
+  feather.replace();
+};
+
+/* Search filter */
+document.getElementById("search").addEventListener("input", e => {
+  const q = e.target.value.toLowerCase();
+  document.querySelectorAll(".link-item").forEach(li => {
+    li.style.display = li.innerText.toLowerCase().includes(q) ? "block" : "none";
+  });
+});
+
+feather.replace();
+</script>
+
 </body>
 </html>
